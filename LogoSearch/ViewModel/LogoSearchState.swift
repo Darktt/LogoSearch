@@ -2,10 +2,11 @@
 //  LogoSearchState.swift
 //  LogoSearch
 //
-//  Created by Eden on 2025/2/6.
+//  Created by Darktt on 2025/2/6.
 //
 
 import Foundation
+import UIKit.UIImage
 
 public
 struct LogoSearchState
@@ -17,6 +18,9 @@ struct LogoSearchState
     
     public
     var error: LogoSearchError?
+    
+    public private(set)
+    var cachedImages: Dictionary<IndexPath, UIImage> = [:]
 }
 
 public
@@ -26,6 +30,13 @@ extension LogoSearchState
     func updateLogoInfos(_ logoInfos: Array<LogoInfo>)
     {
         self.logoInfos = logoInfos
+        self.cachedImages.removeAll()
+    }
+    
+    mutating
+    func updateCachedImage(_ image: UIImage?, at indexPath: IndexPath)
+    {
+        self.cachedImages[indexPath] = image
     }
 }
 

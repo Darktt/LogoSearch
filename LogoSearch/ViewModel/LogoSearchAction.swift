@@ -2,7 +2,7 @@
 //  LogoSearchAction.swift
 //  LogoSearch
 //
-//  Created by Eden on 2025/2/6.
+//  Created by Darktt on 2025/2/6.
 //
 
 import Foundation
@@ -17,9 +17,9 @@ enum LogoSearchAction
     
     case fetchApiError(any Error)
     
-    case fetchImage(URL)
+    case fetchImage(URL, IndexPath)
     
-    case fetchImageResponse(UIImage?)
+    case fetchImageResponse(UIImage?, IndexPath)
     
     case error(LogoSearchError)
 }

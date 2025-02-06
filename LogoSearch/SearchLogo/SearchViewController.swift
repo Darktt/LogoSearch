@@ -119,6 +119,7 @@ public class SearchViewController: UIViewController
             .discardResult
         self.textField.fluent
             .attributedPlaceholder(attrubutedPlaceholder)
+            .autocorrectionType(.no)
             .rightView(cleanButton)
             .rightViewMode(.whileEditing)
             .discardResult
@@ -127,6 +128,7 @@ public class SearchViewController: UIViewController
         self.tableView.fluent
             .dataSource(self)
             .delegate(self)
+            .separatorStyle(.none)
             .rowHeight(UITableView.automaticDimension)
             .estimatedRowHeight(UITableView.automaticDimension)
             .register(SearchCell.self)
@@ -193,6 +195,13 @@ extension SearchViewController
         self.store.dispatch(action)
     }
     
+    func fetchImageAction(with imageUrl: URL, at indexPath: IndexPath)
+    {
+        let action = LogoSearchAction.fetchImage(imageUrl, indexPath)
+        
+        self.store.dispatch(action)
+    }
+    
     func updateView(with state: LogoSearchState)
     {
         let logoInfos: Array = state.logoInfos
@@ -233,8 +242,15 @@ extension SearchViewController: UITableViewDataSource
         let state = self.store.state
         let logoInfos: Array = state.logoInfos
         let logoInfo = logoInfos[indexPath.row]
+        let image: UIImage? = state.cachedImages[indexPath]
+        
+        if image == nil, let imageUrl: URL = logoInfo.imageUrl {
+            
+            self.fetchImageAction(with: imageUrl, at: indexPath)
+        }
         
         cell.logoInfo = logoInfo
+        cell.logoImage = image
         
         return cell
     }

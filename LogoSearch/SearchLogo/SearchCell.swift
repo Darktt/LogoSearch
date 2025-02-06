@@ -2,7 +2,7 @@
 //  SearchCell.swift
 //  LogoSearch
 //
-//  Created by Eden on 2025/2/6.
+//  Created by Darktt on 2025/2/6.
 //
 
 import UIKit
@@ -34,6 +34,15 @@ public class SearchCell: UITableViewCell
         }
     }
     
+    public
+    var logoImage: UIImage? {
+        
+        willSet {
+            
+            self.logoImageView.image = newValue
+        }
+    }
+    
     // MARK: - Methods -
     // MARK: Initial Method
     
@@ -42,6 +51,16 @@ public class SearchCell: UITableViewCell
     {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    public override
+    func prepareForReuse()
+    {
+        super.prepareForReuse()
+        
+        self.logoImageView.image = nil
+        self.nameLabel.text = nil
+        self.domainLabel.text = nil
     }
     
     deinit

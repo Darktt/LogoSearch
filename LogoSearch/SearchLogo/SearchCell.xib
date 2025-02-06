@@ -48,6 +48,7 @@
                         <constraints>
                             <constraint firstItem="AHK-zU-Np5" firstAttribute="leading" secondItem="cds-e2-Ik4" secondAttribute="trailing" constant="15" id="EIq-dr-b0e"/>
                             <constraint firstAttribute="bottom" secondItem="cds-e2-Ik4" secondAttribute="bottom" id="LE4-8F-swf"/>
+                            <constraint firstAttribute="height" constant="40" id="YnN-nL-aJN"/>
                             <constraint firstItem="AHK-zU-Np5" firstAttribute="top" secondItem="2X5-cP-BkJ" secondAttribute="top" id="box-aS-zPu"/>
                             <constraint firstItem="cds-e2-Ik4" firstAttribute="top" secondItem="2X5-cP-BkJ" secondAttribute="top" id="cOq-6E-GO6"/>
                             <constraint firstAttribute="bottom" secondItem="AHK-zU-Np5" secondAttribute="bottom" id="kuy-RW-DTT"/>

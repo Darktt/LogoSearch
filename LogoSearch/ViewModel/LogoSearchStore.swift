@@ -2,7 +2,7 @@
 //  LogoSearchStore.swift
 //  LogoSearch
 //
-//  Created by Eden on 2025/2/6.
+//  Created by Darktt on 2025/2/6.
 //
 
 import Foundation
@@ -18,6 +18,9 @@ func kReducer(state: LogoSearchState, action: LogoSearchAction) -> LogoSearchSta
         
         case let .searchResult(logoInfos):
             newState.updateLogoInfos(logoInfos)
+        
+        case let .fetchImageResponse(imageUrl, indexPath):
+            newState.updateCachedImage(imageUrl, at: indexPath)
         
         case let .error(error):
             newState.error = error
