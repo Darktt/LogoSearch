@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F29A47C32D5480C800EE1766 /* JsonProtection in Frameworks */ = {isa = PBXBuildFile; productRef = F29A47C22D5480C800EE1766 /* JsonProtection */; };
 		F29A47C52D5480C800EE1766 /* QueueMacro in Frameworks */ = {isa = PBXBuildFile; productRef = F29A47C42D5480C800EE1766 /* QueueMacro */; };
+		F2CAC4892D54B37E005228E8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2CAC4882D54B37E005228E8 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		F26275A42D5450D200A71FB7 /* LogoSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogoSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26275BA2D5450D400A71FB7 /* LogoSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogoSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26275C42D5450D400A71FB7 /* LogoSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogoSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2CAC4882D54B37E005228E8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -113,6 +115,7 @@
 		F262759B2D5450D200A71FB7 = {
 			isa = PBXGroup;
 			children = (
+				F2CAC4882D54B37E005228E8 /* README.md */,
 				F26275A62D5450D200A71FB7 /* LogoSearch */,
 				F26275BD2D5450D400A71FB7 /* LogoSearchTests */,
 				F26275C72D5450D400A71FB7 /* LogoSearchUITests */,
@@ -259,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2CAC4892D54B37E005228E8 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
