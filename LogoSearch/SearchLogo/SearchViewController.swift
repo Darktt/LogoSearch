@@ -25,6 +25,9 @@ public class SearchViewController: UIViewController
     weak var searchButton: UIButton!
     
     @IBOutlet private
+    weak var notFoundView: UIView!
+    
+    @IBOutlet private
     weak var tableView: UITableView!
     
     private
@@ -93,6 +96,42 @@ public class SearchViewController: UIViewController
         
         // Do any additional setup after loading the view.
         
+        let title: String = "Logo Search"
+        let placeholder: String = "Enter brand name…"
+        let attrubutes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.lightGray]
+        let attrubutedPlaceholder = NSAttributedString(string: placeholder, attributes: attrubutes)
+        let cleanImage = UIImage(systemName: "xmark.circle.fill")
+        let cleanButton = UIButton(type: .custom).fluent
+                                                 .tintColor(.lightGray)
+                                                 .subject
+        cleanButton.setTitle("  ", for: .normal)
+        cleanButton.setImage(cleanImage, for: .normal)
+        cleanButton.addTarget(self, action: #selector(self.cleanAction(_:)), for: .touchUpInside)
+        cleanButton.sizeToFit()
+        
+        self.title = title
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.textFieldBorderView.fluent
+            .cornerRadius(10.0)
+            .discardResult
+        self.textFieldInnerView.fluent
+            .cornerRadius(9.0)
+            .discardResult
+        self.textField.fluent
+            .attributedPlaceholder(attrubutedPlaceholder)
+            .rightView(cleanButton)
+            .rightViewMode(.whileEditing)
+            .discardResult
+        self.searchButton.addTarget(self, action: #selector(self.searchAction(_:)), for: .touchUpInside)
+        self.notFoundView.isHidden = true
+        self.tableView.fluent
+            .dataSource(self)
+            .delegate(self)
+            .rowHeight(UITableView.automaticDimension)
+            .estimatedRowHeight(UITableView.automaticDimension)
+            .register(SearchCell.self)
+            .discardResult
+        
         self.setupSubscribes()
     }
     
@@ -107,6 +146,13 @@ public class SearchViewController: UIViewController
 private extension SearchViewController
 {
     @objc
+    func cleanAction(_ sender: UIButton)
+    {
+        self.textField.text = nil
+        self.textField.becomeFirstResponder()
+    }
+    
+    @objc
     func searchAction(_ sender: UIButton)
     {
         guard let keyword = self.textField.text else {
@@ -115,6 +161,8 @@ private extension SearchViewController
         }
         
         self.sendSearchAction(with: keyword)
+        self.notFoundView.isHidden = false
+        self.tableView.isHidden = false
     }
 }
 
@@ -147,11 +195,58 @@ extension SearchViewController
     
     func updateView(with state: LogoSearchState)
     {
+        let logoInfos: Array = state.logoInfos
+        let isTableViewHidden = logoInfos.isEmpty
+        
+        self.tableView.isHidden = isTableViewHidden
         self.tableView.reloadData()
         
         if let error = state.error {
             
             self.presentErrorAlert(with: error)
         }
+    }
+}
+
+// MARK: - Delegate Methods -
+// MARK: #UITableViewDataSource
+
+extension SearchViewController: UITableViewDataSource
+{
+    public
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        let state = self.store.state
+        let logoInfos: Array = state.logoInfos
+        
+        return logoInfos.count
+    }
+    
+    public
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        guard let cell = tableView.dequeueReusableCell(SearchCell.self, for: indexPath) else {
+            
+            return UITableViewCell()
+        }
+        
+        let state = self.store.state
+        let logoInfos: Array = state.logoInfos
+        let logoInfo = logoInfos[indexPath.row]
+        
+        cell.logoInfo = logoInfo
+        
+        return cell
+    }
+}
+
+// MARK: #UITableViewDelegate
+
+extension SearchViewController: UITableViewDelegate
+{
+    public
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

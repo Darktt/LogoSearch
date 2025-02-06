@@ -47,7 +47,7 @@ class APIHandler
             throw HTTPError(statusCode)
         }
         
-        self.logJsonString(response.0)
+//        self.logJsonString(response.0)
         let responseObject = try Request.Response.decode(with: response.0)
         
         return responseObject

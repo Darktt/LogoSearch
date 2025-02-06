@@ -22,11 +22,11 @@ struct LogoInfo
     let name: String?
     
     public
-    let domain: URL?
+    let domain: String?
     
     @URLProtection
     public private(set)
-    var image: URL?
+    var imageUrl: URL?
 }
 
 extension LogoInfo: Decodable
@@ -37,6 +37,6 @@ extension LogoInfo: Decodable
         
         case domain
         
-        case image = "logo_url"
+        case imageUrl = "logo_url"
     }
 }

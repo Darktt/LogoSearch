@@ -23,13 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate
         }
         
         let mainViewController = MainViewController()
-        let navigationController: UINavigationController = UINavigationController(rootViewController: mainViewController)
         
         let window = UIWindow(frame: UIScreen.main.bounds).fluent
-            .backgroundColor(.white)
-            .windowScene(windowScene)
-            .rootViewController(navigationController)
-            .subject
+                                                          .windowScene(windowScene)
+                                                          .rootViewController(mainViewController)
+                                                          .subject
         
         self.window = window
         self.window?.makeKeyAndVisible()

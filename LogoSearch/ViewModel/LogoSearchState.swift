@@ -13,7 +13,7 @@ struct LogoSearchState
     // MARK: - Properties -
     
     public private(set)
-    var logInfos: Array<LogoInfo> = []
+    var logoInfos: Array<LogoInfo> = []
     
     public
     var error: LogoSearchError?
@@ -23,9 +23,9 @@ public
 extension LogoSearchState
 {
     mutating
-    func updateLogoInfos(_ logInfos: Array<LogoInfo>)
+    func updateLogoInfos(_ logoInfos: Array<LogoInfo>)
     {
-        self.logInfos = logInfos
+        self.logoInfos = logoInfos
     }
 }
 
