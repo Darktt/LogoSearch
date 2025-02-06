@@ -22,6 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate
             return
         }
         
+        if APIKey.secretKey.isEmpty {
+            
+            fatalError("Please set your secret key in APIKey.swift.")
+        }
+        
         let mainViewController = MainViewController()
         
         let window = UIWindow(frame: UIScreen.main.bounds).fluent
