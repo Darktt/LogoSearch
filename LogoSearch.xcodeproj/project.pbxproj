@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F29A47C32D5480C800EE1766 /* JsonProtection in Frameworks */ = {isa = PBXBuildFile; productRef = F29A47C22D5480C800EE1766 /* JsonProtection */; };
+		F29A47C52D5480C800EE1766 /* QueueMacro in Frameworks */ = {isa = PBXBuildFile; productRef = F29A47C42D5480C800EE1766 /* QueueMacro */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F26275BB2D5450D400A71FB7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,6 +27,19 @@
 			remoteInfo = LogoSearch;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F2FF238C2D545294006EEB71 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F26275A42D5450D200A71FB7 /* LogoSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogoSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +76,11 @@
 			path = LogoSearchUITests;
 			sourceTree = "<group>";
 		};
+		F2FF23912D5452D4006EEB71 /* Frameworks */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29A47C52D5480C800EE1766 /* QueueMacro in Frameworks */,
+				F29A47C32D5480C800EE1766 /* JsonProtection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +116,7 @@
 				F26275A62D5450D200A71FB7 /* LogoSearch */,
 				F26275BD2D5450D400A71FB7 /* LogoSearchTests */,
 				F26275C72D5450D400A71FB7 /* LogoSearchUITests */,
+				F2FF23912D5452D4006EEB71 /* Frameworks */,
 				F26275A52D5450D200A71FB7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +141,7 @@
 				F26275A02D5450D200A71FB7 /* Sources */,
 				F26275A12D5450D200A71FB7 /* Frameworks */,
 				F26275A22D5450D200A71FB7 /* Resources */,
+				F2FF238C2D545294006EEB71 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,9 +149,12 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F26275A62D5450D200A71FB7 /* LogoSearch */,
+				F2FF23912D5452D4006EEB71 /* Frameworks */,
 			);
 			name = LogoSearch;
 			packageProductDependencies = (
+				F29A47C22D5480C800EE1766 /* JsonProtection */,
+				F29A47C42D5480C800EE1766 /* QueueMacro */,
 			);
 			productName = LogoSearch;
 			productReference = F26275A42D5450D200A71FB7 /* LogoSearch.app */;
@@ -208,6 +238,10 @@
 			);
 			mainGroup = F262759B2D5450D200A71FB7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F2FF23862D545134006EEB71 /* XCRemoteSwiftPackageReference "JsonProtection" */,
+				F2FF23872D54513F006EEB71 /* XCRemoteSwiftPackageReference "QueueMacro" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F26275A52D5450D200A71FB7 /* Products */;
 			projectDirPath = "";
@@ -293,9 +327,8 @@
 				INFOPLIST_FILE = LogoSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +353,8 @@
 				INFOPLIST_FILE = LogoSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,6 +595,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F2FF23862D545134006EEB71 /* XCRemoteSwiftPackageReference "JsonProtection" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Darktt/JsonProtection";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
+		F2FF23872D54513F006EEB71 /* XCRemoteSwiftPackageReference "QueueMacro" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Darktt/QueueMacro";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F29A47C22D5480C800EE1766 /* JsonProtection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2FF23862D545134006EEB71 /* XCRemoteSwiftPackageReference "JsonProtection" */;
+			productName = JsonProtection;
+		};
+		F29A47C42D5480C800EE1766 /* QueueMacro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2FF23872D54513F006EEB71 /* XCRemoteSwiftPackageReference "QueueMacro" */;
+			productName = QueueMacro;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F262759C2D5450D200A71FB7 /* Project object */;
 }

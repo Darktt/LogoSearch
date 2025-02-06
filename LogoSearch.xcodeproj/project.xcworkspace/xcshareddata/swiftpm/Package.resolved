@@ -1,0 +1,33 @@
+{
+  "originHash" : "37f83dbcd2e93c1ddba322abfd8cb111664226feac22289224eb7c63fce1cea7",
+  "pins" : [
+    {
+      "identity" : "jsonprotection",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Darktt/JsonProtection",
+      "state" : {
+        "revision" : "33924021e774e33f1f4ed0321c7281743f2ce1f6",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "queuemacro",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Darktt/QueueMacro",
+      "state" : {
+        "revision" : "91df503df2032e578a32c3ff21ff295dd3acb79d",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "2bc86522d115234d1f588efe2bcb4ce4be8f8b82",
+        "version" : "510.0.3"
+      }
+    }
+  ],
+  "version" : 3
+}

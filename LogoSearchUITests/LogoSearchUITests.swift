@@ -2,7 +2,7 @@
 //  LogoSearchUITests.swift
 //  LogoSearchUITests
 //
-//  Created by Eden on 2025/2/6.
+//  Created by Darktt on 2025/2/6.
 //
 
 import XCTest
