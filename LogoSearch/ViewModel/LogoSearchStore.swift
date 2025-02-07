@@ -25,6 +25,9 @@ func kReducer(state: LogoSearchState, action: LogoSearchAction) -> LogoSearchSta
         case let .fetchLogoImageResponse(image):
             newState.logoImage = image
         
+        case .cleanLogoImageCache:
+            newState.logoImage = nil
+        
         case let .error(error):
             newState.error = error
         

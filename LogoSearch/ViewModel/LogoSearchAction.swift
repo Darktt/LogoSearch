@@ -25,5 +25,7 @@ enum LogoSearchAction
     
     case fetchLogoImageResponse(UIImage?)
     
+    case cleanLogoImageCache
+    
     case error(LogoSearchError)
 }

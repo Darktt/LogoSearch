@@ -150,6 +150,7 @@ class LogoDetailViewController: UIViewController
     {
         super.viewDidDisappear(animated)
         
+        self.sendCleanLogoImageCacheAction()
     }
     
     public override
@@ -288,6 +289,13 @@ extension LogoDetailViewController
             
             self.store.dispatch(action)
         }
+    }
+    
+    func sendCleanLogoImageCacheAction()
+    {
+        let action = LogoSearchAction.cleanLogoImageCache
+        
+        self.store.dispatch(action)
     }
     
     func updateView(with state: LogoSearchState)
