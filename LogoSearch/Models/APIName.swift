@@ -20,6 +20,22 @@ struct APIName
     // MARK: - Methods -
     // MARK: Initial Method
     
+    public static
+    func image(with domain: String) -> APIName
+    {
+        let urlString = "https://img.logo.dev/\(domain)"
+        
+        return APIName(urlString)
+    }
+    
+    public static
+    func ticker(with stockTicker: String) -> APIName
+    {
+        let urlString = "https://img.logo.dev/ticker/\(stockTicker)"
+        
+        return APIName(urlString)
+    }
+    
     private
     init(_ urlString: String)
     {

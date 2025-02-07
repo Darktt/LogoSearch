@@ -27,6 +27,17 @@ struct LogoInfo
     @URLProtection
     public private(set)
     var imageUrl: URL?
+    
+    // MARK: - Methods -
+    // MARK: Initial Method
+    
+    public
+    init()
+    {
+        self.name = nil
+        self.domain = nil
+        self.imageUrl = nil
+    }
 }
 
 extension LogoInfo: Decodable

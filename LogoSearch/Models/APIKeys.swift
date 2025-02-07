@@ -12,5 +12,8 @@ struct APIKey
     // MARK: - Properties -
     
     public static
+    let publicKey: String = ""
+    
+    public static
     let secretKey: String = ""
 }

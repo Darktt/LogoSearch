@@ -44,7 +44,11 @@ class Coordinator
     {
         switch page
         {
+            case .detailImage(let logoInfo, let store):
+                self.showDetailImage(with: logoInfo, store: store)
             
+            case .activity(let image):
+                self.showActivity(with: image)
         }
     }
     
@@ -59,7 +63,29 @@ class Coordinator
 private
 extension Coordinator
 {
+    func showDetailImage(with logoInfo: LogoInfo, store: LogoSearchStore)
+    {
+        guard let viewController = self.currentViewController else {
+            
+            return
+        }
+        
+        let detailViewController = LogoDetailViewController(with: logoInfo, store: store)
+        
+        viewController.navigationController?.pushViewController(detailViewController, animated: true)
+    }
     
+    func showActivity(with image: UIImage)
+    {
+        guard let viewController = self.currentViewController else {
+            
+            return
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        viewController.present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Coordinator.NavigationDelegate -
@@ -123,7 +149,9 @@ extension Coordinator
 {
     enum Page
     {
+        case detailImage(LogoInfo, LogoSearchStore)
         
+        case activity(UIImage)
     }
 }
 

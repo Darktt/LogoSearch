@@ -264,5 +264,11 @@ extension SearchViewController: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let state = self.store.state
+        let logoInfo = state.logoInfos[indexPath.row]
+        
+        let coordinator = Coordinator.shared
+        coordinator.nextPage(.detailImage(logoInfo, self.store))
     }
 }

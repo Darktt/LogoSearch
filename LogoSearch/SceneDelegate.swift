@@ -22,6 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate
             return
         }
         
+        if APIKey.publicKey.isEmpty {
+            
+            fatalError("Please set your public key in APIKey.swift.")
+        }
+        
         if APIKey.secretKey.isEmpty {
             
             fatalError("Please set your secret key in APIKey.swift.")
@@ -30,6 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate
         let mainViewController = MainViewController()
         
         let window = UIWindow(frame: UIScreen.main.bounds).fluent
+                                                          .tintColor(.white)
                                                           .windowScene(windowScene)
                                                           .rootViewController(mainViewController)
                                                           .subject

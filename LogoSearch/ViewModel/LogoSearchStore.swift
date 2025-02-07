@@ -19,8 +19,11 @@ func kReducer(state: LogoSearchState, action: LogoSearchAction) -> LogoSearchSta
         case let .searchResult(logoInfos):
             newState.updateLogoInfos(logoInfos)
         
-        case let .fetchImageResponse(imageUrl, indexPath):
-            newState.updateCachedImage(imageUrl, at: indexPath)
+        case let .fetchImageResponse(image, indexPath):
+            newState.updateCachedImage(image, at: indexPath)
+        
+        case let .fetchLogoImageResponse(image):
+            newState.logoImage = image
         
         case let .error(error):
             newState.error = error

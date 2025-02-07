@@ -59,6 +59,19 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		F20D054A2D55AB8B00CE1D9F /* Exceptions for "Frameworks" folder in "Embed Frameworks" phase from "LogoSearch" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				SwiftExtensions.xcframework = (CodeSignOnCopy, RemoveHeadersOnCopy, );
+			};
+			buildPhase = F2FF238C2D545294006EEB71 /* Embed Frameworks */;
+			membershipExceptions = (
+				SwiftExtensions.xcframework,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F26275A62D5450D200A71FB7 /* LogoSearch */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -80,6 +93,9 @@
 		};
 		F2FF23912D5452D4006EEB71 /* Frameworks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F20D054A2D55AB8B00CE1D9F /* Exceptions for "Frameworks" folder in "Embed Frameworks" phase from "LogoSearch" target */,
+			);
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
@@ -327,6 +343,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y5PE34DHT4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogoSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -353,6 +370,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y5PE34DHT4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogoSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

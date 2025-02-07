@@ -31,6 +31,17 @@ let ImageLoaderMiddware: Middleware<LogoSearchState, LogoSearchAction> = {
                     return
                 }
                 
+                if case let LogoSearchAction.fetchLogoImage(url) = action {
+                    
+                    Task {
+                        
+                        let newAction: LogoSearchAction = await fetchLogoImage(url: url)
+                        
+                        next(newAction)
+                    }
+                    return
+                }
+                
                 next(action)
         }
     }
@@ -44,6 +55,25 @@ func fetchImage(url: URL, at indexPath: IndexPath) async -> LogoSearchAction
         let image: UIImage? = try await downloader.load(with: url)
         
         let newAction = LogoSearchAction.fetchImageResponse(image, indexPath)
+        
+        return newAction
+        
+    } catch {
+        
+        let newAction = LogoSearchAction.fetchApiError(error)
+        
+        return newAction
+    }
+}
+
+func fetchLogoImage(url: URL) async -> LogoSearchAction
+{
+    do {
+        
+        let downloader = ImageLoader.shared
+        let image: UIImage? = try await downloader.load(with: url)
+        
+        let newAction = LogoSearchAction.fetchLogoImageResponse(image)
         
         return newAction
         

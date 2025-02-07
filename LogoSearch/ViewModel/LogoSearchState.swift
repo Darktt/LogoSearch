@@ -21,6 +21,9 @@ struct LogoSearchState
     
     public private(set)
     var cachedImages: Dictionary<IndexPath, UIImage> = [:]
+    
+    public
+    var logoImage: UIImage?
 }
 
 public

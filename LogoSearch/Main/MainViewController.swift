@@ -96,6 +96,9 @@ private extension MainViewController
     
     func navigationController(rootViewController: UIViewController) -> UINavigationController
     {
-        UINavigationController(rootViewController: rootViewController)
+        let viewController = UINavigationController(rootViewController: rootViewController)
+        viewController.navigationBar.barTintColor = .black
+        
+        return viewController
     }
 }
