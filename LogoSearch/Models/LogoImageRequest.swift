@@ -122,6 +122,7 @@ extension LogoImageRequest
 public
 extension LogoImageRequest.Format
 {
+    static
     var allCases: Array<LogoImageRequest.Format> {
         
         [.jpg, .png]
@@ -143,9 +144,9 @@ extension LogoImageRequest
 
 extension LogoImageRequest.Fallback
 {
+    static
     var allCases: Array<LogoImageRequest.Fallback> {
             
         [.monogram, .notFound]
     }
-
 }

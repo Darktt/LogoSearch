@@ -165,6 +165,31 @@ class LogoDetailViewController: UIViewController
         let innerCornerRadius: CGFloat = 5.0
         let domain: String? = self.logoInfo.domain
         
+        let formatMenuItems: Array<UIMenuElement> = LogoImageRequest.Format.allCases.map {
+            
+            UIAction(title: $0.rawValue) {
+                
+                [unowned self] action in
+                
+                self.selectedFormat = LogoImageRequest.Format(rawValue: action.title) ?? .jpg
+                self.formatValueLabel.text = action.title
+                self.sendImageAction()
+            }
+        }
+        let formatMenu = UIMenu(options: .displayInline, children: formatMenuItems)
+        let fallbackMenuItems: Array<UIMenuElement> = LogoImageRequest.Fallback.allCases.map {
+            
+            UIAction(title: $0.rawValue) {
+                
+                [unowned self] action in
+                
+                self.selectedFallback = LogoImageRequest.Fallback(rawValue: action.title) ?? .monogram
+                self.fallbackValueLabel.text = action.title
+                self.sendImageAction()
+            }
+        }
+        let fallbackMenu = UIMenu(options: .displayInline, children: fallbackMenuItems)
+        
         self.title = title
         self.previewBorderView.cornerRadius = borderCornerRadius
         self.previewInnerView.cornerRadius = innerCornerRadius
@@ -184,11 +209,17 @@ class LogoDetailViewController: UIViewController
         self.formatBorderView.cornerRadius = borderCornerRadius
         self.formatInnerView.cornerRadius = innerCornerRadius
         self.formatValueLabel.text = self.selectedFormat.rawValue
-        self.formatButton.addTarget(self, action: #selector(self.formatAction(_:)), for: .touchUpInside)
+        self.formatButton.fluent
+            .menu(formatMenu)
+            .showsMenuAsPrimaryAction(true)
+            .discardResult
         self.fallbackBorderView.cornerRadius = borderCornerRadius
         self.fallbackInnerView.cornerRadius = innerCornerRadius
         self.fallbackValueLabel.text = self.selectedFallback.rawValue
-        self.fallbackButton.addTarget(self, action: #selector(self.fallbackAction(_:)), for: .touchUpInside)
+        self.fallbackButton.fluent
+            .menu(fallbackMenu)
+            .showsMenuAsPrimaryAction(true)
+            .discardResult
         self.setupSubscribes()
         self.sendImageAction()
     }
@@ -236,20 +267,6 @@ extension LogoDetailViewController
     {
         self.sendImageAction()
     }
-    
-    @objc
-    func formatAction(_ sender: UIButton)
-    {
-        
-        
-    }
-    
-    @objc
-    func fallbackAction(_ sender: UIButton)
-    {
-        
-        
-    }
 }
 
 // MARK: - Private Methons -
@@ -282,8 +299,12 @@ extension LogoDetailViewController
         request.size = self.sizeSlider.value
         request.isGreyscale = self.greyscaleSwitch.isOn
         request.isRetina = self.retinaSwitch.isOn
+        request.format = self.selectedFormat
+        request.fallback = self.selectedFallback
         
         request.url.unwrapped {
+            
+            print("Image url: \($0)")
             
             let action = LogoSearchAction.fetchLogoImage($0)
             
