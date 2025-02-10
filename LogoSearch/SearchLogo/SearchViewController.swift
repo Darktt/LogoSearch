@@ -163,6 +163,7 @@ private extension SearchViewController
         }
         
         self.sendSearchAction(with: keyword)
+        self.view.endEditing(true)
         self.notFoundView.isHidden = false
         self.tableView.isHidden = false
     }

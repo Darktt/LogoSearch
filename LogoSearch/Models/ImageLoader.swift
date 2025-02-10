@@ -34,12 +34,15 @@ class ImageLoader
     {
         let request = URLRequest(url: url)
         
-        if let cachedResponse = self.chachedImages.cachedResponse(for: request) {
+        if let cachedResponse: CachedURLResponse = self.chachedImages.cachedResponse(for: request) {
             
+            await Log.v(message: "Load image from cache.")
             let image = UIImage(data: cachedResponse.data)
             
             return image
         }
+        
+        await Log.v(message: "Load image from url.")
         
         let (data, response) = try await URLSession.shared.data(for: request)
         

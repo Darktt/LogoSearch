@@ -238,7 +238,7 @@ extension LogoDetailViewController
     @objc
     func downloadAction(_ sender: UIButton)
     {
-        guard let image = self.imageView.image else {
+        guard let image: UIImage = self.store.state.logoImage else {
                 
             return
         }
@@ -304,7 +304,7 @@ extension LogoDetailViewController
         
         request.url.unwrapped {
             
-            print("Image url: \($0)")
+            Log.v(message: "Image url: \($0)")
             
             let action = LogoSearchAction.fetchLogoImage($0)
             
