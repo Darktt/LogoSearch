@@ -204,6 +204,7 @@ class LogoDetailViewController: UIViewController
         self.domainLabel.text = domain
         self.sizeValueLabel.text = "(180px)"
         self.sizeSlider.addTarget(self, action: #selector(self.sizeAction(_:)), for: .valueChanged)
+        self.sizeSlider.addTarget(self, action: #selector(self.sizeUpdateAction(_:)), for: .touchUpInside)
         self.greyscaleSwitch.addTarget(self, action: #selector(self.grayscaleAction(_:)), for: .valueChanged)
         self.retinaSwitch.addTarget(self, action: #selector(self.retinaAction(_:)), for: .valueChanged)
         self.formatBorderView.cornerRadius = borderCornerRadius
@@ -253,6 +254,11 @@ extension LogoDetailViewController
         let size: String = "(\(Int(sender.value))px)"
         
         self.sizeValueLabel.text = size
+    }
+    
+    @objc
+    func sizeUpdateAction(_ sender: UISlider)
+    {
         self.sendImageAction()
     }
     
