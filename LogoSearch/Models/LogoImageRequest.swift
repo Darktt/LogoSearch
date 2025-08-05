@@ -32,6 +32,9 @@ struct LogoImageRequest
     var isGreyscale: Bool = false
     
     public
+    var isDarkMode: Bool = false
+    
+    public
     var isRetina: Bool = true
     
     public
@@ -48,9 +51,11 @@ struct LogoImageRequest
         
         if self.format == .png {
             
-            let queryItem = URLQueryItem(name: "format", value: self.format.rawValue)
-            
-            quertItems.append(queryItem)
+            quertItems.append(contentsOf: [
+                
+                URLQueryItem(name: "format", value: self.format.rawValue),
+                URLQueryItem(name: "theme", value: self.isDarkMode ? "dark" : "light")
+            ])
         }
         
         if self.isGreyscale {
@@ -59,7 +64,6 @@ struct LogoImageRequest
             
             quertItems.append(queryItem)
         }
-        
         
         if self.isRetina {
                 

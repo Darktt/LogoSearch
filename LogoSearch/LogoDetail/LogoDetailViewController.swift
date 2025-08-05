@@ -53,6 +53,12 @@ class LogoDetailViewController: UIViewController
     weak var greyscaleSwitch: UISwitch!
     
     @IBOutlet private
+    var darkModeContentView: UIView!
+    
+    @IBOutlet private
+    weak var darkModeSwitch: UISwitch!
+    
+    @IBOutlet private
     weak var retinaSwitch: UISwitch!
     
     @IBOutlet private
@@ -173,6 +179,7 @@ class LogoDetailViewController: UIViewController
                 
                 self.selectedFormat = LogoImageRequest.Format(rawValue: action.title) ?? .jpg
                 self.formatValueLabel.text = action.title
+                self.darkModeContentView.isHidden = (self.selectedFormat == .jpg)
                 self.sendImageAction()
             }
         }
@@ -203,9 +210,12 @@ class LogoDetailViewController: UIViewController
         self.domainInnerView.cornerRadius = innerCornerRadius
         self.domainLabel.text = domain
         self.sizeValueLabel.text = "(180px)"
+        self.sizeSlider.value = 180.0
         self.sizeSlider.addTarget(self, action: #selector(self.sizeAction(_:)), for: .valueChanged)
         self.sizeSlider.addTarget(self, action: #selector(self.sizeUpdateAction(_:)), for: .touchUpInside)
         self.greyscaleSwitch.addTarget(self, action: #selector(self.grayscaleAction(_:)), for: .valueChanged)
+        self.darkModeContentView.isHidden = true
+        self.darkModeSwitch.addTarget(self, action: #selector(self.darkModeAction(_:)), for: .valueChanged)
         self.retinaSwitch.addTarget(self, action: #selector(self.retinaAction(_:)), for: .valueChanged)
         self.formatBorderView.cornerRadius = borderCornerRadius
         self.formatInnerView.cornerRadius = innerCornerRadius
@@ -269,6 +279,12 @@ extension LogoDetailViewController
     }
     
     @objc
+    func darkModeAction(_ sender: UISwitch)
+    {
+        self.sendImageAction()
+    }
+    
+    @objc
     func retinaAction(_ sender: UISwitch)
     {
         self.sendImageAction()
@@ -304,6 +320,7 @@ extension LogoDetailViewController
         var request = LogoImageRequest.image(with: domain)
         request.size = self.sizeSlider.value
         request.isGreyscale = self.greyscaleSwitch.isOn
+        request.isDarkMode = self.darkModeSwitch.isOn
         request.isRetina = self.retinaSwitch.isOn
         request.format = self.selectedFormat
         request.fallback = self.selectedFallback
