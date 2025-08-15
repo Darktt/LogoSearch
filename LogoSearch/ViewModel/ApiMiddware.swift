@@ -35,6 +35,7 @@ let ApiMiddware: Middleware<LogoSearchState, LogoSearchAction> = {
     }
 }
 
+@MainActor
 private
 func apiRequest<Request>(_ request: Request) async throws -> Request.Response where Request: APIRequest
 {

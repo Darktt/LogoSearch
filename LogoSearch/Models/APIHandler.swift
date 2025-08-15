@@ -1,20 +1,35 @@
 //
 //  APIHandler.swift
 //
-//  Created by Darktt on 2023/7/4.
+//  Created by Darktt on 2025/8/12.
+//  Copyright © 2025 Darktt. All rights reserved.
 //
 
 import Foundation
+
+#if canImport(SwiftExtensions)
+    
 import SwiftExtensions
 
+#endif
+
+#if canImport(SwiftPlayground)
+
+import SwiftPlayground
+
+#endif
+
+@MainActor
 public
 class APIHandler
 {
     // MARK: - Properties -
     
-    public static var shared: APIHandler = .init()
+    public static
+    var shared: APIHandler = APIHandler.init()
     
-    private lazy var urlSession: URLSession = {
+    private
+    lazy var urlSession: URLSession = {
         
         let configuration = URLSessionConfiguration.ephemeral
         let urlSession = URLSession(configuration: configuration, delegate: nil, delegateQueue: .main)

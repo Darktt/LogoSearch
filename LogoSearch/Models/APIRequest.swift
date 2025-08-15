@@ -1,11 +1,23 @@
 //
 //  APIRequest.swift
 //
-//  Created by Darktt on 2023/10/6.
+//  Created by Darktt on 2025/8/12.
+//  Copyright © 2023 Darktt. All rights reserved.
 //
 
 import Foundation
+
+#if canImport(SwiftExtensions)
+    
 import SwiftExtensions
+
+#endif
+
+#if canImport(SwiftPlayground)
+
+import SwiftPlayground
+
+#endif
 
 public
 protocol APIRequest
@@ -31,18 +43,9 @@ extension APIRequest
         
         var url: URL = self.apiName.url
         
-        if method == .get {
+        if self.method == .get {
             
-            if #available(iOS 16.0, *) {
-                
-                url.append(queryItems: self.parameters?.queryItems() ?? [])
-            } else {
-                
-                var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-                urlComponents?.queryItems = self.parameters?.queryItems()
-                
-                url = urlComponents?.url ?? url
-            }
+            url._append(queryItems: self.parameters?.queryItems() ?? [])
         }
         
         var request = URLRequest(url: url)
@@ -53,6 +56,28 @@ extension APIRequest
     }
 }
 
+// MARK: - Private Extensions -
+
+fileprivate
+extension URL
+{
+    mutating
+    func _append(queryItems: Array<URLQueryItem>)
+    {
+        if #available(iOS 16.0, *) {
+            
+            self.append(queryItems: queryItems)
+            return
+        }
+        
+        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: false)
+        urlComponents?.queryItems = queryItems
+        
+        self = urlComponents?.url ?? self
+    }
+}
+
+fileprivate
 extension Dictionary<AnyHashable, Any>
 {
     func queryItems() -> Array<URLQueryItem>
