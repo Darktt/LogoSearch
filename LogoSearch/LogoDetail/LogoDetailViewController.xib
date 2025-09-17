@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -137,7 +138,7 @@
                                                             <rect key="frame" x="15" y="15" width="331" height="363.66666666666669"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cRc-p5-q5t">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="49.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="54.666666666666664"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My7-pc-Yhf">
                                                                             <rect key="frame" x="0.0" y="0.0" width="331" height="14.333333333333334"/>
@@ -146,13 +147,13 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIx-3g-AsS">
-                                                                            <rect key="frame" x="0.0" y="24.333333333333371" width="331" height="25.333333333333329"/>
+                                                                            <rect key="frame" x="0.0" y="24.333333333333371" width="331" height="30.333333333333329"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bM-Na-1s6">
-                                                                                    <rect key="frame" x="1" y="1" width="329" height="23.333333333333332"/>
+                                                                                    <rect key="frame" x="1" y="1" width="329" height="28.333333333333332"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="apple.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhK-eb-d8Y">
-                                                                                            <rect key="frame" x="5" y="5.0000000000000009" width="319" height="13.333333333333336"/>
+                                                                                            <rect key="frame" x="5" y="5" width="319" height="18.333333333333332"/>
                                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
@@ -178,7 +179,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yS5-9v-nJu">
-                                                                    <rect key="frame" x="0.0" y="59.666666666666686" width="331" height="44.333333333333343"/>
+                                                                    <rect key="frame" x="0.0" y="64.666666666666686" width="331" height="48.333333333333343"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dg0-TV-cDx">
                                                                             <rect key="frame" x="0.0" y="0.0" width="331" height="14.333333333333334"/>
@@ -198,56 +199,57 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="16" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="OKZ-KD-h3i">
-                                                                            <rect key="frame" x="-2" y="14.333333333333314" width="335" height="31"/>
+                                                                            <rect key="frame" x="0.0" y="14.333333333333314" width="331" height="34"/>
                                                                             <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="thumbTintColor" name="AccentColor"/>
                                                                         </slider>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVn-YZ-yyZ">
-                                                                    <rect key="frame" x="0.0" y="114" width="331" height="31"/>
+                                                                    <rect key="frame" x="0.0" y="123" width="331" height="28"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Greyscale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRT-oh-Lbs">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="282" height="31"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="28"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nIr-Fy-0zc">
-                                                                            <rect key="frame" x="282" y="0.0" width="51" height="31"/>
+                                                                            <rect key="frame" x="270" y="0.0" width="63" height="28"/>
                                                                             <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="thumbTintColor" name="AccentColor"/>
                                                                         </switch>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZA-cY-f4P">
-                                                                    <rect key="frame" x="0.0" y="155" width="331" height="31"/>
+                                                                    <rect key="frame" x="0.0" y="161" width="331" height="28"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Dark mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtA-a9-wBx">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="282" height="31"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="28"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MqA-qD-Ahj">
-                                                                            <rect key="frame" x="282" y="0.0" width="51" height="31"/>
+                                                                            <rect key="frame" x="270" y="0.0" width="63" height="28"/>
                                                                             <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="thumbTintColor" name="AccentColor"/>
                                                                         </switch>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7a4-Aq-5Hv">
-                                                                    <rect key="frame" x="0.0" y="196" width="331" height="31"/>
+                                                                    <rect key="frame" x="0.0" y="199" width="331" height="28"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Retina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJm-uU-kYY">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="282" height="31"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="28"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gSP-Yv-am7">
-                                                                            <rect key="frame" x="282" y="0.0" width="51" height="31"/>
+                                                                            <rect key="frame" x="270" y="0.0" width="63" height="28"/>
                                                                             <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="thumbTintColor" name="AccentColor"/>
                                                                         </switch>
                                                                     </subviews>
                                                                 </stackView>
@@ -431,5 +433,8 @@
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="arrowtriangle.up.fill" catalog="system" width="128" height="120"/>
         <image name="square.and.arrow.down" catalog="system" width="114" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
