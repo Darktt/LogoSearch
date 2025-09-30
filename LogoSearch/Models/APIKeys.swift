@@ -6,14 +6,21 @@
 //
 
 import Foundation
+import Configuration
 
 struct APIKey
 {
     // MARK: - Properties -
     
     public static
-    let publicKey: String = ""
+    var publicKey: String {
+        
+        Config().publicKey
+    }
     
     public static
-    let secretKey: String = ""
+    var secretKey: String {
+        
+        Config().secretKey
+    }
 }

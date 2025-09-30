@@ -24,12 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate
         
         if APIKey.publicKey.isEmpty {
             
-            fatalError("Please set your public key in APIKey.swift.")
+            fatalError("Please set your public key in Config.swift.")
         }
         
         if APIKey.secretKey.isEmpty {
             
-            fatalError("Please set your secret key in APIKey.swift.")
+            fatalError("Please set your secret key in Config.swift.")
         }
         
         let mainViewController = MainViewController()
