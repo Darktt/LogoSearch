@@ -45,8 +45,8 @@ typealias LogoSearchStore = Store<LogoSearchState, LogoSearchAction>
 let kLogoSearchStore = LogoSearchStore(initialState: LogoSearchState(),
                                                   reducer: kReducer,
                                               middlewares: [
-                                                                ApiMiddware,
-                                                                ImageLoaderMiddware,
-                                                                ErrorMiddware
+                                                                ApiMiddleware,
+                                                                ImageLoaderMiddleware,
+                                                                ErrorMiddleware
                                                             ]
                                             )

@@ -1,6 +1,6 @@
 //
-//  ImageLoaderMiddware.swift
-//  StackExchangeDemo
+//  ImageLoaderMiddleware.swift
+//  LogoSearch
 //
 //  Created by Darktt on 2024/7/2.
 //
@@ -10,7 +10,7 @@ import UIKit
 
 @MainActor
 public
-let ImageLoaderMiddware: Middleware<LogoSearchState, LogoSearchAction> = {
+let ImageLoaderMiddleware: Middleware<LogoSearchState, LogoSearchAction> = {
     
     store in
     

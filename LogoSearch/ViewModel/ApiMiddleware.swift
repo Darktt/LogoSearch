@@ -1,6 +1,6 @@
 //
-//  ApiMiddware.swift
-//  StackExchangeDemo
+//  ApiMiddleware.swift
+//  LogoSearch
 //
 //  Created by Darktt on 2024/6/28.
 //
@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 public
-let ApiMiddware: Middleware<LogoSearchState, LogoSearchAction> = {
+let ApiMiddleware: Middleware<LogoSearchState, LogoSearchAction> = {
     
     store in
     

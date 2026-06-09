@@ -1,6 +1,6 @@
 //
-//  ErrorMiddware.swift
-//  StackExchangeDemo
+//  ErrorMiddleware.swift
+//  LogoSearch
 //
 //  Created by Darktt on 2024/6/28.
 //
@@ -10,7 +10,7 @@ import SwiftExtensions
 
 @MainActor
 public
-let ErrorMiddware: Middleware<LogoSearchState, LogoSearchAction> = {
+let ErrorMiddleware: Middleware<LogoSearchState, LogoSearchAction> = {
     
     store in
     
