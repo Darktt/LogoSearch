@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="25098" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25073"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -407,6 +407,7 @@
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="UZ4-j4-WZd" firstAttribute="width" secondItem="OtY-Xc-nap" secondAttribute="width" id="1Vz-VX-ZWl"/>
                         <constraint firstItem="UZ4-j4-WZd" firstAttribute="leading" secondItem="z8g-Up-2oP" secondAttribute="leading" id="8q3-hc-6Uu"/>
                         <constraint firstItem="UZ4-j4-WZd" firstAttribute="top" secondItem="z8g-Up-2oP" secondAttribute="top" id="KtY-ZQ-T3e"/>
                         <constraint firstItem="UZ4-j4-WZd" firstAttribute="trailing" secondItem="z8g-Up-2oP" secondAttribute="trailing" id="kLR-HQ-CeI"/>
@@ -419,7 +420,6 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="UZ4-j4-WZd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="JSA-OK-Fbn"/>
                 <constraint firstAttribute="bottom" secondItem="OtY-Xc-nap" secondAttribute="bottom" id="NZU-IU-pS1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OtY-Xc-nap" secondAttribute="trailing" id="RKO-CU-bQA"/>
                 <constraint firstItem="OtY-Xc-nap" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jEq-fe-3F2"/>
@@ -429,10 +429,10 @@
         </view>
     </objects>
     <resources>
-        <image name="apple.logo" catalog="system" width="105" height="128"/>
-        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
-        <image name="arrowtriangle.up.fill" catalog="system" width="128" height="120"/>
-        <image name="square.and.arrow.down" catalog="system" width="114" height="128"/>
+        <image name="apple.logo" catalog="system" width="32" height="32"/>
+        <image name="arrowtriangle.down.fill" catalog="system" width="32" height="32"/>
+        <image name="arrowtriangle.up.fill" catalog="system" width="32" height="32"/>
+        <image name="square.and.arrow.down" catalog="system" width="32" height="32"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

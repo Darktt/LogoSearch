@@ -10,7 +10,6 @@
 		F2673B582E8B766200EB0ADB /* Configuration in Frameworks */ = {isa = PBXBuildFile; productRef = F2673B572E8B766200EB0ADB /* Configuration */; };
 		F29A47C32D5480C800EE1766 /* JsonProtection in Frameworks */ = {isa = PBXBuildFile; productRef = F29A47C22D5480C800EE1766 /* JsonProtection */; };
 		F29A47C52D5480C800EE1766 /* QueueMacro in Frameworks */ = {isa = PBXBuildFile; productRef = F29A47C42D5480C800EE1766 /* QueueMacro */; };
-		F2CAC4892D54B37E005228E8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2CAC4882D54B37E005228E8 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,7 +281,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2CAC4892D54B37E005228E8 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +350,7 @@
 				INFOPLIST_FILE = LogoSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,7 +377,7 @@
 				INFOPLIST_FILE = LogoSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

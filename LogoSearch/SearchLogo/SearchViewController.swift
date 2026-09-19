@@ -203,6 +203,13 @@ extension SearchViewController
         self.store.dispatch(action)
     }
     
+    func sendCleanLogoImageCacheAction()
+    {
+        let action = LogoSearchAction.cleanLogoImageCache
+        
+        self.store.dispatch(action)
+    }
+    
     func updateView(with state: LogoSearchState)
     {
         let logoInfos: Array = state.logoInfos
@@ -264,6 +271,7 @@ extension SearchViewController: UITableViewDelegate
     public
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        self.sendCleanLogoImageCacheAction()
         tableView.deselectRow(at: indexPath, animated: true)
         
         let state = self.store.state

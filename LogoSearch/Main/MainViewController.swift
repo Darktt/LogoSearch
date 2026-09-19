@@ -87,11 +87,23 @@ public class MainViewController: UIViewController
 
 // MARK: - Private Methons -
 
-private extension MainViewController
+private
+extension MainViewController
 {
     func loadSearchViewController() -> UIViewController
     {
-        SearchViewController()
+        let viewController = SearchViewController()
+        
+        if #available(iOS 27.1, *) {
+            
+            let arrangementViewController = UIArrangementViewController()
+            arrangementViewController.setViewController(viewController, for: .primary)
+            arrangementViewController.updateArrangement(.split.axes(.horizontal))
+            
+            return arrangementViewController
+        }
+        
+        return viewController
     }
     
     func navigationController(rootViewController: UIViewController) -> UINavigationController

@@ -72,6 +72,13 @@ extension Coordinator
         
         let detailViewController = LogoDetailViewController(with: logoInfo, store: store)
         
+        if #available(iOS 27.1, *),
+           let arrangementViewController = viewController.navigationController?.viewControllers.first as? UIArrangementViewController {
+            
+            arrangementViewController.setViewController(detailViewController, for: .secondary, animated: true)
+            return
+        }
+        
         viewController.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
