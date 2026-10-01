@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UniformTypeIdentifiers
 import Combine
 
 public
@@ -168,6 +169,7 @@ class LogoDetailViewController: UIViewController
         let title: String = "Logo Image"
         let borderCornerRadius: CGFloat = 6.0
         let innerCornerRadius: CGFloat = 5.0
+        let interaction = UIDragInteraction(delegate: self)
         let domain: String? = self.logoInfo.domain
         
         let formatMenuItems: Array<UIMenuElement> = LogoImageRequest.Format.allCases.map {
@@ -201,6 +203,8 @@ class LogoDetailViewController: UIViewController
         self.previewInnerView.cornerRadius = innerCornerRadius
         self.downloadButton.addTarget(self, action: #selector(self.downloadAction(_:)), for: .touchUpInside)
         self.imageBorderView.cornerRadius = borderCornerRadius
+        self.imageView.isUserInteractionEnabled = true
+        self.imageView.addInteraction(interaction)
         self.imageView.cornerRadius = innerCornerRadius
         self.imageView.image = nil
         self.settingBorderView.cornerRadius = borderCornerRadius
@@ -344,5 +348,53 @@ extension LogoDetailViewController
             
             self.presentErrorAlert(with: error)
         }
+    }
+}
+
+// MARK: Delegate Methods
+
+extension LogoDetailViewController: UIDragInteractionDelegate
+{
+    public
+    func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem]
+    {
+        guard let image = self.imageView.image,
+                let imageData = image.pngData() else {
+            
+            return []
+        }
+
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("Logo-\(UUID().uuidString)")
+            .appendingPathExtension("png")
+
+        do {
+            
+            try imageData.write(to: fileURL, options: .atomic)
+        } catch {
+            
+            return []
+        }
+
+        // 先提供 UIImage，讓 LINE 等訊息 App 可作為圖片處理。
+        let provider = NSItemProvider(object: image)
+
+        // 再提供實體 PNG 檔，讓 Imgur 等網頁上傳器可作為檔案處理。
+        let type = UTType.png.identifier
+        provider.registerFileRepresentation(forTypeIdentifier: type, fileOptions: [], visibility: .all) {
+            
+            completion in
+            
+            completion(fileURL, false, nil)
+            return nil
+        }
+
+        provider.suggestedName = "logo.png"
+        provider.preferredPresentationStyle = .attachment
+
+        let item = UIDragItem(itemProvider: provider)
+        item.localObject = image
+
+        return [item]
     }
 }
