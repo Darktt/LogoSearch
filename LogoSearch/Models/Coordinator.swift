@@ -28,6 +28,12 @@ class Coordinator
     }()
     
     fileprivate
+    lazy var splitViewControllerDelegate: SplitViewControllerDelegate = {
+        
+       SplitViewControllerDelegate(parent: self)
+    }()
+    
+    fileprivate
     var currentViewController: UIViewController?
     
     // MARK: - Methods -
@@ -72,14 +78,13 @@ extension Coordinator
         
         let detailViewController = LogoDetailViewController(with: logoInfo, store: store)
         
-        if #available(iOS 27.1, *),
-           let arrangementViewController = viewController.navigationController?.viewControllers.first as? UIArrangementViewController {
+        if let splitViewController = viewController.splitViewController {
             
-            arrangementViewController.setViewController(detailViewController, for: .secondary, animated: true)
+            let navigationController = UINavigationController(rootViewController: detailViewController)
+            
+            splitViewController.showDetailViewController(navigationController, sender: nil)
             return
         }
-        
-        viewController.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     func showActivity(with image: UIImage)
@@ -149,6 +154,51 @@ extension Coordinator.TabBarDelegate: UITabBarControllerDelegate
     }
 }
 
+// MARK: - Coordinator.SplitViewControllerDelegate -
+
+private
+extension Coordinator
+{
+    class SplitViewControllerDelegate: NSObject
+    {
+        fileprivate
+        unowned var parent: Coordinator!
+        
+        fileprivate
+        init(parent: Coordinator) {
+            
+            self.parent = parent
+        }
+    }
+}
+
+extension Coordinator.SplitViewControllerDelegate: UISplitViewControllerDelegate
+{
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
+    {
+        if let navigationController = secondaryViewController as? UINavigationController {
+            
+            let isMargePrimary = navigationController.topViewController is LogoDetailViewController
+            
+            return !isMargePrimary
+        }
+        
+        return true
+    }
+    
+    func splitViewController(_ svc: UISplitViewController, topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column) -> UISplitViewController.Column
+    {
+        if let navigationController = svc.viewController(for: .secondary) as? UINavigationController {
+            
+            let isMargePrimary = navigationController.topViewController is LogoDetailViewController
+            
+            return isMargePrimary ? .secondary : .primary
+        }
+        
+        return .primary
+    }
+}
+
 // MARK: - Coordinator.Page -
 
 public
@@ -201,5 +251,20 @@ extension UITabBarController
         coordinator.currentViewController = viewController
         
         self.delegate = coordinator.tabBarDelegate
+    }
+}
+
+// MARK: UISplitViewController
+
+extension UISplitViewController
+{
+    open override
+    func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        let coordinator = Coordinator.shared
+        
+        self.delegate = coordinator.splitViewControllerDelegate
     }
 }

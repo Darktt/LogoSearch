@@ -94,23 +94,24 @@ extension MainViewController
     {
         let viewController = SearchViewController()
         
-        if #available(iOS 27.1, *) {
-            
-            let arrangementViewController = UIArrangementViewController()
-            arrangementViewController.setViewController(viewController, for: .primary)
-            arrangementViewController.updateArrangement(.split.axes(.horizontal))
-            
-            return arrangementViewController
-        }
-        
         return viewController
     }
     
-    func navigationController(rootViewController: UIViewController) -> UINavigationController
+    func navigationController(rootViewController: UIViewController) -> UIViewController
     {
         let viewController = UINavigationController(rootViewController: rootViewController)
         viewController.navigationBar.barTintColor = .black
         
-        return viewController
+        let placeHolderViewController = PlaceHolderViewController()
+        let placeHolderNavigation = UINavigationController(rootViewController: placeHolderViewController)
+        placeHolderNavigation.navigationBar.barTintColor = .black
+                
+        let splitViewController = UISplitViewController(style: .doubleColumn)
+        splitViewController.setViewController(viewController, for: .primary)
+        splitViewController.setViewController(placeHolderNavigation, for: .secondary)
+        splitViewController.preferredDisplayMode = .oneBesideSecondary
+        splitViewController.presentsWithGesture = false
+        
+        return splitViewController
     }
 }

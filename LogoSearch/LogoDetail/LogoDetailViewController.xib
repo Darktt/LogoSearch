@@ -418,7 +418,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="OtY-Xc-nap" secondAttribute="bottom" id="NZU-IU-pS1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OtY-Xc-nap" secondAttribute="trailing" id="RKO-CU-bQA"/>
@@ -435,6 +435,9 @@
         <image name="square.and.arrow.down" catalog="system" width="32" height="32"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundColor">
+            <color red="0.054901960784313725" green="0.054901960784313725" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -122,7 +122,8 @@ public class SearchViewController: UIViewController
             .autocorrectionType(.no)
             .rightView(cleanButton)
             .rightViewMode(.whileEditing)
-            .discardResult
+            .subject
+            .addTarget(self, action: #selector(self.searchAction(_:)), for: .editingDidEndOnExit)
         self.searchButton.addTarget(self, action: #selector(self.searchAction(_:)), for: .touchUpInside)
         self.notFoundView.isHidden = true
         self.tableView.fluent
